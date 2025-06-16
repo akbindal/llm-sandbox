@@ -76,9 +76,9 @@ class CommandEmptyError(SandboxError):
 class CommandFailedError(SandboxError):
     """Raised when a command fails."""
 
-    def __init__(self, command: str, exit_code: int, output: str) -> None:
+    def __init__(self, command: str, exit_code: int, stdout: str, stderr: str) -> None:
         """Initialize the CommandFailedError."""
-        super().__init__(f"Command {command} failed with exit code {exit_code}:\n{output}")
+        super().__init__(f"Command {command} failed with exit code {exit_code}:\nstdout: {stdout}\nstderr: {stderr}")
 
 
 class PackageManagerError(SandboxError):
